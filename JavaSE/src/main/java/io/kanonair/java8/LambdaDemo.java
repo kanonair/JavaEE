@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.util.Comparator;
 import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 
@@ -65,13 +66,19 @@ public class LambdaDemo {
      */
     @Test
     public void example06() {
+
         // 对象::实例方法
         Employee employee = new Employee(1, "Taylor", 18, 10000.0);
         // 供给型
         Supplier<String> s1 = employee::getName;
         String s = s1.get();
         System.out.println("s = " + s);
+
         // 类::静态方法
+        // 函数型
+        Function<Double, Long> f1 = Math::round;
+        Long apply = f1.apply(1.2);
+        System.out.println("apply = " + apply);
 
         // 类::实例方法
     }
