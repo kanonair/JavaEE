@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -101,6 +102,29 @@ public class StreamAPI {
         System.out.println(list.stream().count());
         // 最大值
         System.out.println(list.stream().map(Employee::getSalary).max(Double::compare).orElse(0.0));
+    }
+
+    /**
+     * 终止操作
+     */
+    @Test
+    public void example06() {
+        List<Integer> list = Arrays.asList(1, 2, 3);
+        // 求和
+        Integer sum = list.stream().reduce(0,
+                Integer::sum);
+        System.out.println(sum);
+        // 求和
+        Optional<Double> aDouble = EmployeeData.init()
+                .stream().map(Employee::getSalary)
+                .reduce(Double::sum);
+        System.out.println(aDouble);
+        // 收集
+        List<Employee> collect = EmployeeData.init()
+                .stream()
+                .filter(e -> e.getAge() > 20)
+                .collect(Collectors.toList());
+        collect.forEach(System.out::println);
     }
 
 }
