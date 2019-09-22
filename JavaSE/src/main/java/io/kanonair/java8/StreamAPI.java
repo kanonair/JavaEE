@@ -54,4 +54,14 @@ public class StreamAPI {
         list.stream().distinct().forEach(System.out::println);
     }
 
+    /**
+     * 中间操作
+     */
+    @Test
+    public void example03() {
+        List<Integer> list = Arrays.asList(1, 2);
+        // 映射
+        list.stream().map(EmployeeData.init()::get).forEach(System.out::println);
+    }
+
 }
