@@ -89,4 +89,24 @@ public class LambdaDemo {
 
     }
 
+    /**
+     * 构造器引用
+     */
+    @Test
+    public void example07() {
+        Supplier<Employee> s1 = Employee::new;
+        System.out.println(s1);
+    }
+
+    /**
+     * 数组引用
+     */
+    @Test
+    public void example08() {
+        Function<Integer, String[]> f1 = String[]::new;
+        int length = f1.apply(10).length;
+        System.out.println(length);
+    }
+
+
 }
