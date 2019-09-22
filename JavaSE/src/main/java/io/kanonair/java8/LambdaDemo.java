@@ -3,10 +3,7 @@ package io.kanonair.java8;
 import org.junit.Test;
 
 import java.util.Comparator;
-import java.util.function.Consumer;
-import java.util.function.Function;
-import java.util.function.Predicate;
-import java.util.function.Supplier;
+import java.util.function.*;
 
 public class LambdaDemo {
 
@@ -81,6 +78,15 @@ public class LambdaDemo {
         System.out.println("apply = " + apply);
 
         // 类::实例方法
+        Comparator<String> c1 = String::compareTo;
+        System.out.println(c1.compare("a", "c"));
+
+        BiPredicate<String, String> b1 = String::equals;
+        System.out.println(b1.test("a", "c"));
+
+        Function<Employee, String> f2 = Employee::getName;
+        System.out.println(f2.apply(employee));
+
     }
 
 }
