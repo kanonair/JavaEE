@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -73,6 +74,33 @@ public class StreamAPI {
         // 排序
         list.stream().sorted().forEach(System.out::println);
         EmployeeData.init().stream().sorted((e1, e2) -> e2.getAge() - e1.getAge()).forEach(System.out::println);
+    }
+
+    /**
+     * 终止操作
+     */
+    @Test
+    public void example05() {
+        List<Employee> list = EmployeeData.init();
+        // 匹配所有
+        boolean b = list.stream().allMatch(e -> e.getAge() > 20);
+        System.out.println(b);
+        // 匹配部分
+        boolean anyMatch = list.stream().anyMatch(e -> e.getAge() > 20);
+        System.out.println(anyMatch);
+        // 没有匹配
+        boolean noneMatch = list.stream().noneMatch(e -> e.getAge() > 30);
+        System.out.println(noneMatch);
+        // 返回第一个元素
+        Optional<Employee> first = list.stream().findFirst();
+        System.out.println(first.orElse(null));
+        // 返回任意一个
+        Optional<Employee> any = list.parallelStream().findAny();
+        System.out.println(any.orElse(null));
+        // 总数
+        System.out.println(list.stream().count());
+        // 最大值
+        System.out.println(list.stream().map(Employee::getSalary).max(Double::compare).orElse(0.0));
     }
 
 }
