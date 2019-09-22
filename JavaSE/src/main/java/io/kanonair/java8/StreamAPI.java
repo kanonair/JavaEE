@@ -64,4 +64,15 @@ public class StreamAPI {
         list.stream().map(EmployeeData.init()::get).forEach(System.out::println);
     }
 
+    /**
+     * 中间操作
+     */
+    @Test
+    public void example04() {
+        List<Integer> list = Arrays.asList(2, 7, 9, 6, 1);
+        // 排序
+        list.stream().sorted().forEach(System.out::println);
+        EmployeeData.init().stream().sorted((e1, e2) -> e2.getAge() - e1.getAge()).forEach(System.out::println);
+    }
+
 }
