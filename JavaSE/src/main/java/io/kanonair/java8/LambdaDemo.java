@@ -108,5 +108,4 @@ public class LambdaDemo {
         System.out.println(length);
     }
 
-
 }
