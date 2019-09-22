@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.util.Comparator;
 import java.util.function.Consumer;
+import java.util.function.Predicate;
 
 public class LambdaDemo {
 
@@ -46,6 +47,16 @@ public class LambdaDemo {
     public void example04() {
         Consumer<Double> c1 = System.out::println;
         c1.accept(10.0);
+    }
+
+    /**
+     * 断定型
+     */
+    @Test
+    public void example05() {
+        Predicate<String> p1 = s -> s.equals("lambda");
+        boolean b = p1.test("lambda");
+        System.out.println("b = " + b);
     }
 
 }
