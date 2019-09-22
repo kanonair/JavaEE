@@ -3,6 +3,7 @@ package io.kanonair;
 import org.junit.Test;
 
 import java.util.Comparator;
+import java.util.function.Consumer;
 
 public class LambdaDemo {
 
@@ -36,6 +37,15 @@ public class LambdaDemo {
         Comparator<Integer> c1 = Integer::compareTo;
         int i = c1.compare(1, 2);
         System.out.println("i = " + i);
+    }
+
+    /**
+     * 消费型
+     */
+    @Test
+    public void example04() {
+        Consumer<Double> c1 = System.out::println;
+        c1.accept(10.0);
     }
 
 }
