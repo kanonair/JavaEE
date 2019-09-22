@@ -11,6 +11,7 @@ public class EmployeeData {
         list.add(new Employee(3, "Taylor3", 20, 10100.0));
         list.add(new Employee(4, "Taylor4", 21, 10010.0));
         list.add(new Employee(5, "Taylor5", 22, 10001.0));
+        list.add(new Employee(5, "Taylor5", 22, 10001.0));
         return list;
     }
 }

@@ -4,3 +4,8 @@
             
               本质：作为函数式接口的实例
               函数式接口：消费型、供给型、函数型、断定型
+              
+            - Stream API java8.StreamAPI.java
+            
+              
+              
