@@ -50,4 +50,22 @@ public class ReflectDemo {
         System.out.println(invoke);
     }
 
+    /**
+     * 获取
+     */
+    @Test
+    public void example03() throws Exception {
+        // 1
+        Class<Person> pClass1 = Person.class;
+        System.out.println(pClass1);
+
+        // 2
+        Class pClass2 = new Person().getClass();
+        System.out.println(pClass2);
+
+        // 3
+        Class<?> aClass = Class.forName("io.kanonair.reflect.Person");
+        System.out.println(aClass);
+    }
+
 }
