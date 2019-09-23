@@ -66,6 +66,11 @@ public class ReflectDemo {
         // 3
         Class<?> aClass = Class.forName("io.kanonair.reflect.Person");
         System.out.println(aClass);
+
+        // 4
+        ClassLoader classLoader = ReflectDemo.class.getClassLoader();
+        Class<?> loadClass = classLoader.loadClass("io.kanonair.reflect.Person");
+        System.out.println(loadClass);
     }
 
 }
