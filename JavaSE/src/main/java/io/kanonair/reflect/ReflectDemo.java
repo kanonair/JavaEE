@@ -2,9 +2,11 @@ package io.kanonair.reflect;
 
 import org.junit.Test;
 
+import java.io.InputStream;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.util.Properties;
 
 public class ReflectDemo {
 
@@ -71,6 +73,19 @@ public class ReflectDemo {
         ClassLoader classLoader = ReflectDemo.class.getClassLoader();
         Class<?> loadClass = classLoader.loadClass("io.kanonair.reflect.Person");
         System.out.println(loadClass);
+    }
+
+    /**
+     * properties
+     */
+    @Test
+    public void example04() throws Exception {
+        Properties properties = new Properties();
+        InputStream inputStream = ReflectDemo.class.getClassLoader()
+                .getResourceAsStream("jdbc.properties");
+        properties.load(inputStream);
+        String url = properties.getProperty("url");
+        System.out.println(url);
     }
 
 }
