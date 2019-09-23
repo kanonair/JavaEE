@@ -6,6 +6,7 @@ import java.io.InputStream;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 import java.util.Properties;
 
 public class ReflectDemo {
@@ -86,6 +87,23 @@ public class ReflectDemo {
         properties.load(inputStream);
         String url = properties.getProperty("url");
         System.out.println(url);
+    }
+
+    /**
+     * 获取属性
+     */
+    @Test
+    public void example05() {
+        Class<Person> personClass = Person.class;
+        Field[] fields = personClass.getDeclaredFields();
+        for (Field field : fields) {
+            // 修饰符
+            System.out.println(Modifier.toString(field.getModifiers()));
+            // 类型
+            System.out.println(field.getType().getName());
+            // 名称
+            System.out.println(field.getName());
+        }
     }
 
 }
