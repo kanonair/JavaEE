@@ -60,6 +60,7 @@ public class Person {
         System.out.println("Hello");
     }
 
+    @MyAnnotation
     private String showSex(String sex) {
         System.out.println(sex);
         return sex;

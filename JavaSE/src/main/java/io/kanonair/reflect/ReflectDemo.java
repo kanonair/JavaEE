@@ -3,6 +3,7 @@ package io.kanonair.reflect;
 import org.junit.Test;
 
 import java.io.InputStream;
+import java.lang.annotation.Annotation;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -103,6 +104,26 @@ public class ReflectDemo {
             System.out.println(field.getType().getName());
             // 名称
             System.out.println(field.getName());
+        }
+    }
+
+    /**
+     * 获取方法
+     */
+    @Test
+    public void example06() {
+        Class<Person> personClass = Person.class;
+        Method[] methods = personClass.getDeclaredMethods();
+        for (Method method : methods) {
+            // 名称
+            System.out.println(method.getName());
+            // 注解
+            Annotation[] declaredAnnotations = method.getDeclaredAnnotations();
+            for (Annotation declaredAnnotation : declaredAnnotations) {
+                System.out.println(declaredAnnotation);
+            }
+            // 修饰符
+            System.out.println(Modifier.toString(method.getModifiers()));
         }
     }
 
