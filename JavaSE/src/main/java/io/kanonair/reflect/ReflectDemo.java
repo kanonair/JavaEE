@@ -135,4 +135,28 @@ public class ReflectDemo {
         }
     }
 
+    /**
+     * 获取构造器
+     */
+    @Test
+    public void example07() {
+        Class<Person> pClass = Person.class;
+        Constructor<?>[] declaredConstructors = pClass.getDeclaredConstructors();
+        for (Constructor<?> constructor : declaredConstructors) {
+            // 名称
+            String name = constructor.getName();
+            System.out.println(name);
+        }
+    }
+
+    /**
+     * 获取运行时类的父类
+     */
+    @Test
+    public void example08() {
+        Class<Person> pClass = Person.class;
+        Class<? super Person> superclass = pClass.getSuperclass();
+        System.out.println(superclass);
+    }
+
 }
