@@ -124,6 +124,14 @@ public class ReflectDemo {
             }
             // 修饰符
             System.out.println(Modifier.toString(method.getModifiers()));
+            // 返回值类型
+            System.out.println(method.getReturnType().getName());
+            // 参数类型
+            Class<?>[] parameterTypes = method.getParameterTypes();
+            for (Class<?> type : parameterTypes) {
+                System.out.println(type.getName());
+            }
+            System.out.println("----------");
         }
     }
 
