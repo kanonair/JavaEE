@@ -159,4 +159,20 @@ public class ReflectDemo {
         System.out.println(superclass);
     }
 
+    /**
+     * 获取指定的属性方法
+     */
+    @Test
+    public void example09() throws Exception {
+        Class<Person> personClass = Person.class;
+        Person person = personClass.newInstance();
+        Field name = personClass.getDeclaredField("name");
+        name.setAccessible(true);
+        name.set(person, "Taylor");
+        System.out.println(person);
+        Method showSex = personClass.getDeclaredMethod("showSex", String.class);
+        showSex.setAccessible(true);
+        showSex.invoke(person, "Hello");
+    }
+
 }
