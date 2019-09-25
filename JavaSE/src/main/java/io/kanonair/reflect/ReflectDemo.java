@@ -4,10 +4,7 @@ import org.junit.Test;
 
 import java.io.InputStream;
 import java.lang.annotation.Annotation;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.lang.reflect.Modifier;
+import java.lang.reflect.*;
 import java.util.Properties;
 
 public class ReflectDemo {
@@ -183,6 +180,26 @@ public class ReflectDemo {
         Constructor<Person> constructor = personClass.getDeclaredConstructor(String.class);
         constructor.setAccessible(true);
         System.out.println(constructor.newInstance("Taylor"));
+    }
+
+    /**
+     * 动态代理
+     */
+    @Test
+    public void example10() {
+        SuperMan superMan = new SuperMan();
+        Human instance = (Human) Proxy.newProxyInstance(
+                superMan.getClass().getClassLoader(),
+                superMan.getClass().getInterfaces(),
+                (proxy, method, args) -> {
+                    System.out.println("before");
+                    Object o = method.invoke(superMan, args);
+                    System.out.println("after");
+                    return o;
+                }
+        );
+        System.out.println(instance.belief());
+        instance.eat("sweets");
     }
 
 }
