@@ -166,13 +166,23 @@ public class ReflectDemo {
     public void example09() throws Exception {
         Class<Person> personClass = Person.class;
         Person person = personClass.newInstance();
+        // 属性
         Field name = personClass.getDeclaredField("name");
         name.setAccessible(true);
         name.set(person, "Taylor");
         System.out.println(person);
+        // 方法
         Method showSex = personClass.getDeclaredMethod("showSex", String.class);
         showSex.setAccessible(true);
         showSex.invoke(person, "Hello");
+        // 静态
+        Method test01 = personClass.getDeclaredMethod("test01");
+        test01.setAccessible(true);
+        test01.invoke(Person.class);
+        // 构造器
+        Constructor<Person> constructor = personClass.getDeclaredConstructor(String.class);
+        constructor.setAccessible(true);
+        System.out.println(constructor.newInstance("Taylor"));
     }
 
 }

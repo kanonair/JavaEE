@@ -66,4 +66,8 @@ public class Person {
         return sex;
     }
 
+    public static void test01() {
+        System.out.println("test01");
+    }
+
 }
