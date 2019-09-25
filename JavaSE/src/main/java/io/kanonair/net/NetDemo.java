@@ -81,6 +81,7 @@ public class NetDemo {
         HttpURLConnection connection = (HttpURLConnection) new URL("https://www.baidu.com").openConnection();
         connection.setConnectTimeout(5000);
         connection.setReadTimeout(5000);
+        connection.connect();
         int code = connection.getResponseCode();
         if (code == HttpURLConnection.HTTP_OK) {
             InputStream inputStream = connection.getInputStream();
@@ -93,6 +94,7 @@ public class NetDemo {
             System.out.println(outputStream);
             outputStream.close();
             inputStream.close();
+            connection.disconnect();
         }
     }
 
