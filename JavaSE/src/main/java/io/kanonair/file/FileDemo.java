@@ -3,6 +3,7 @@ package io.kanonair.file;
 import org.junit.Test;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.Date;
 
 public class FileDemo {
@@ -38,6 +39,30 @@ public class FileDemo {
         if (files != null) {
             for (File f : files) {
                 System.out.println(f);
+            }
+        }
+        // 创建文件
+        file = new File("C:/Users/Administrator/Desktop/JavaEE/JavaSE/src/main/resources/a");
+        if (!file.exists()) {
+            try {
+                boolean b = file.createNewFile();
+                if (b) {
+                    System.out.println("ok");
+                } else {
+                    System.out.println("er");
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        // 创建文件
+        file = new File("C:/Users/Administrator/Desktop/JavaEE/JavaSE/src/main/resources/aa");
+        if (!file.exists()) {
+            boolean b = file.mkdir();
+            if (b) {
+                System.out.println("ok");
+            } else {
+                System.out.println("er");
             }
         }
     }
