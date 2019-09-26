@@ -102,4 +102,44 @@ public class FileDemo {
         fileInputStream.close();
     }
 
+    /**
+     * 缓冲流
+     */
+    @Test
+    public void example04() throws Exception {
+        String filePath1 = "C:/Users/Administrator/Desktop/JavaEE/JavaSE/src/main/resources/file1.txt";
+        String filePath2 = "C:/Users/Administrator/Desktop/JavaEE/JavaSE/src/main/resources/file4.txt";
+        InputStream inputStream = new FileInputStream(filePath1);
+        BufferedInputStream bufferedInputStream = new BufferedInputStream(inputStream);
+        OutputStream outputStream = new FileOutputStream(filePath2);
+        BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(outputStream);
+        byte[] b = new byte[1024];
+        int len;
+        while ((len = bufferedInputStream.read(b)) != -1) {
+            bufferedOutputStream.write(b, 0, len);
+        }
+        bufferedOutputStream.close();
+        bufferedInputStream.close();
+    }
+
+    /**
+     * 缓冲流
+     */
+    @Test
+    public void example05() throws Exception {
+        String filePath1 = "C:/Users/Administrator/Desktop/JavaEE/JavaSE/src/main/resources/file1.txt";
+        String filePath2 = "C:/Users/Administrator/Desktop/JavaEE/JavaSE/src/main/resources/file5.txt";
+        Reader reader = new FileReader(filePath1);
+        BufferedReader bufferedReader = new BufferedReader(reader);
+        Writer writer = new FileWriter(filePath2);
+        BufferedWriter bufferedWriter = new BufferedWriter(writer);
+        char[] c = new char[1024];
+        int len;
+        while ((len = bufferedReader.read(c)) != -1) {
+            bufferedWriter.write(c, 0, len);
+        }
+        bufferedWriter.close();
+        bufferedReader.close();
+    }
+
 }
