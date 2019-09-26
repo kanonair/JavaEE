@@ -2,10 +2,7 @@ package io.kanonair.file;
 
 import org.junit.Test;
 
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.Date;
 
 public class FileDemo {
@@ -70,8 +67,6 @@ public class FileDemo {
     }
 
     /**
-     * 字节流：InputStream OutputStream
-     * <p>
      * 字符流：Reader Writer
      */
     @Test
@@ -87,6 +82,22 @@ public class FileDemo {
         }
         fileWriter.close();
         fileReader.close();
+    }
+
+    /**
+     * 字节流：InputStream OutputStream
+     */
+    @Test
+    public void example03() throws Exception {
+        FileInputStream fileInputStream = new FileInputStream("C:/Users/Administrator/Desktop/JavaEE/JavaSE/src/main/resources/file1.txt");
+        FileOutputStream fileOutputStream = new FileOutputStream("C:/Users/Administrator/Desktop/JavaEE/JavaSE/src/main/resources/file3.txt");
+        byte[] b = new byte[1024];
+        int len = -1;
+        while ((len = fileInputStream.read(b)) != -1) {
+            fileOutputStream.write(b, 0, len);
+        }
+        fileOutputStream.close();
+        fileInputStream.close();
     }
 
 }
