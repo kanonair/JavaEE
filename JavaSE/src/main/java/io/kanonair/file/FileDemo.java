@@ -89,8 +89,10 @@ public class FileDemo {
      */
     @Test
     public void example03() throws Exception {
-        FileInputStream fileInputStream = new FileInputStream("C:/Users/Administrator/Desktop/JavaEE/JavaSE/src/main/resources/file1.txt");
-        FileOutputStream fileOutputStream = new FileOutputStream("C:/Users/Administrator/Desktop/JavaEE/JavaSE/src/main/resources/file3.txt");
+        String filePath1 = "C:/Users/Administrator/Desktop/JavaEE/JavaSE/src/main/resources/file1.txt";
+        String filePath2 = "C:/Users/Administrator/Desktop/JavaEE/JavaSE/src/main/resources/file3.txt";
+        FileInputStream fileInputStream = new FileInputStream(filePath1);
+        FileOutputStream fileOutputStream = new FileOutputStream(filePath2);
         byte[] b = new byte[1024];
         int len;
         while ((len = fileInputStream.read(b)) != -1) {
