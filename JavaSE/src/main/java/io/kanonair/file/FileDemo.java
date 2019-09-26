@@ -76,7 +76,7 @@ public class FileDemo {
         FileReader fileReader = new FileReader(filePath1);
         FileWriter fileWriter = new FileWriter(filePath2);
         char[] c = new char[1024];
-        int len = -1;
+        int len;
         while ((len = fileReader.read(c)) != -1) {
             fileWriter.write(c, 0, len);
         }
@@ -92,7 +92,7 @@ public class FileDemo {
         FileInputStream fileInputStream = new FileInputStream("C:/Users/Administrator/Desktop/JavaEE/JavaSE/src/main/resources/file1.txt");
         FileOutputStream fileOutputStream = new FileOutputStream("C:/Users/Administrator/Desktop/JavaEE/JavaSE/src/main/resources/file3.txt");
         byte[] b = new byte[1024];
-        int len = -1;
+        int len;
         while ((len = fileInputStream.read(b)) != -1) {
             fileOutputStream.write(b, 0, len);
         }
