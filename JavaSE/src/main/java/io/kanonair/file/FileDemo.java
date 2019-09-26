@@ -3,6 +3,8 @@ package io.kanonair.file;
 import org.junit.Test;
 
 import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Date;
 
@@ -65,6 +67,26 @@ public class FileDemo {
                 System.out.println("er");
             }
         }
+    }
+
+    /**
+     * 字节流：InputStream OutputStream
+     * <p>
+     * 字符流：Reader Writer
+     */
+    @Test
+    public void example02() throws Exception {
+        String filePath1 = "C:/Users/Administrator/Desktop/JavaEE/JavaSE/src/main/resources/file1.txt";
+        String filePath2 = "C:/Users/Administrator/Desktop/JavaEE/JavaSE/src/main/resources/file2.txt";
+        FileReader fileReader = new FileReader(filePath1);
+        FileWriter fileWriter = new FileWriter(filePath2);
+        char[] c = new char[1024];
+        int len = -1;
+        while ((len = fileReader.read(c)) != -1) {
+            fileWriter.write(c, 0, len);
+        }
+        fileWriter.close();
+        fileReader.close();
     }
 
 }
