@@ -142,4 +142,24 @@ public class FileDemo {
         bufferedReader.close();
     }
 
+    /**
+     * 转换流
+     */
+    @Test
+    public void example06() throws Exception {
+        String filePath1 = "C:/Users/Administrator/Desktop/JavaEE/JavaSE/src/main/resources/file1.txt";
+        String filePath2 = "C:/Users/Administrator/Desktop/JavaEE/JavaSE/src/main/resources/file6.txt";
+        InputStream inputStream = new FileInputStream(filePath1);
+        InputStreamReader isr = new InputStreamReader(inputStream);
+        OutputStream outputStream = new FileOutputStream(filePath2);
+        OutputStreamWriter osw = new OutputStreamWriter(outputStream);
+        char[] c = new char[1024];
+        int len;
+        while ((len = isr.read(c)) != -1) {
+            osw.write(c, 0, len);
+        }
+        osw.close();
+        isr.close();
+    }
+
 }
