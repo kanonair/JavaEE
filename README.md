@@ -1,5 +1,7 @@
     - JavaSE
             
+            - 泛型             generic.GenericDemo
+            
             - 文件流           file.FileDemo
             
             - 网络编程         net.NetDemo
