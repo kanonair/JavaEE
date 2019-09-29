@@ -100,7 +100,7 @@ public class CollectionDemo {
     }
 
     /**
-     * Map:
+     * Map
      */
     @Test
     public void example04() {
