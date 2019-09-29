@@ -27,5 +27,9 @@ public class CollectionDemo {
         // 移除
         col.remove(new Person(19, "Taylor"));
         System.out.println(col);
+        // 迭代
+        for (Person person : col) {
+            System.out.println(person);
+        }
     }
 }
