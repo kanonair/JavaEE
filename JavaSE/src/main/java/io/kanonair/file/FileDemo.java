@@ -163,7 +163,7 @@ public class FileDemo {
     }
 
     /**
-     * 打印流
+     * 标准输入输出
      */
     @Test
     public void example07() throws Exception {
@@ -177,6 +177,24 @@ public class FileDemo {
             System.out.println(line);
         }
         bufferedReader.close();
+    }
+
+    /**
+     * 随机存取文件流
+     */
+    @Test
+    public void example08() throws Exception {
+        String filePath1 = "C:/Users/Administrator/Desktop/JavaEE/JavaSE/src/main/resources/file1.txt";
+        String filePath2 = "C:/Users/Administrator/Desktop/JavaEE/JavaSE/src/main/resources/file7.txt";
+        RandomAccessFile randomAccessFile1 = new RandomAccessFile(filePath1, "rw");
+        RandomAccessFile randomAccessFile2 = new RandomAccessFile(filePath2, "rw");
+        byte[] b = new byte[1024];
+        int len = -1;
+        while ((len = randomAccessFile1.read(b)) != -1) {
+            randomAccessFile2.write(b, 0, len);
+        }
+        randomAccessFile2.close();
+        randomAccessFile1.close();
     }
 
 }
