@@ -162,4 +162,21 @@ public class FileDemo {
         isr.close();
     }
 
+    /**
+     * 打印流
+     */
+    @Test
+    public void example07() throws Exception {
+        InputStreamReader inputStreamReader = new InputStreamReader(System.in);
+        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+        while (true) {
+            String line = bufferedReader.readLine();
+            if ("e".equals(line)) {
+                break;
+            }
+            System.out.println(line);
+        }
+        bufferedReader.close();
+    }
+
 }
