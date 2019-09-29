@@ -1,5 +1,6 @@
 package io.kanonair.file;
 
+import org.apache.commons.io.FileUtils;
 import org.junit.Test;
 
 import java.io.*;
@@ -195,6 +196,16 @@ public class FileDemo {
         }
         randomAccessFile2.close();
         randomAccessFile1.close();
+    }
+
+    /**
+     * commons-io
+     */
+    @Test
+    public void example09() throws Exception {
+        String filePath1 = "C:/Users/Administrator/Desktop/JavaEE/JavaSE/src/main/resources/file1.txt";
+        String filePath2 = "C:/Users/Administrator/Desktop/JavaEE/JavaSE/src/main/resources/file8.txt";
+        FileUtils.copyFile(new File(filePath1), new File(filePath2));
     }
 
 }
