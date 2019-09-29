@@ -2,9 +2,7 @@ package io.kanonair.collection;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
+import java.util.*;
 
 public class CollectionDemo {
 
@@ -32,4 +30,81 @@ public class CollectionDemo {
             System.out.println(person);
         }
     }
+
+    /**
+     * List:有序 可重复
+     * <p>
+     * ArrayList:查询
+     * <p>
+     * LinkedList:增删
+     */
+    @Test
+    public void example02() {
+        ArrayList<Person> arrayList = new ArrayList<>();
+        // 添加
+        arrayList.add(new Person(18, "Taylor"));
+        arrayList.add(new Person(20, "Taylor"));
+        System.out.println(arrayList);
+        // 修改
+        arrayList.set(1, new Person(19, "Taylor"));
+        // 获取
+        System.out.println(arrayList.get(1));
+        // 位置
+        System.out.println(arrayList.indexOf(new Person(18, "Taylor")));
+        // 截取
+        System.out.println(arrayList.subList(0, 1));
+        // 删除
+        arrayList.remove(1);
+        System.out.println(arrayList);
+        // 清空
+        arrayList.clear();
+        System.out.println(arrayList);
+        arrayList.add(new Person(18, "Taylor"));
+        arrayList.add(new Person(19, "Taylor"));
+        arrayList.add(new Person(20, "Taylor"));
+        arrayList.add(new Person(21, "Taylor"));
+        arrayList.add(new Person(22, "Taylor"));
+        // 遍历
+        for (Person person : arrayList) {
+            System.out.println(person);
+        }
+    }
+
+    /**
+     * Set:无序 不可重复
+     * <p>
+     * HashSet:
+     * <p>
+     * LinkedHashSet:
+     * <p>
+     * TreeSet:
+     */
+    @Test
+    public void example03() {
+        HashSet<Person> set = new HashSet<>();
+        set.add(new Person(18, "Taylor"));
+        set.add(new Person(20, "Taylor"));
+        set.add(new Person(20, "Taylor"));
+        set.add(new Person(20, "Taylor"));
+        set.add(new Person(20, "Taylor"));
+        set.add(new Person(20, "Taylor"));
+        set.add(new Person(20, "Taylor"));
+        set.add(new Person(20, "Taylor"));
+        set.add(new Person(24, "Taylor"));
+        set.add(new Person(27, "Taylor"));
+        set.add(new Person(28, "Taylor"));
+        System.out.println(set);
+        TreeSet<Person> treeSet = new TreeSet<>((o1, o2) -> o2.getAge() - o1.getAge());
+        treeSet.addAll(set);
+        System.out.println(treeSet);
+    }
+
+    /**
+     * Map:
+     */
+    @Test
+    public void example04() {
+
+    }
+
 }
