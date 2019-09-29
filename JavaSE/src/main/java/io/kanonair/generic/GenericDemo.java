@@ -9,12 +9,9 @@ public class GenericDemo {
      */
     @Test
     public void example01() {
-        Generic<String> generic1 = new Generic<>();
-        generic1.setT("generic");
-        System.out.println(generic1.getT());
-        Generic<Integer> generic2 = new Generic<>();
-        generic2.setT(1);
-        System.out.println(generic2.getT());
+        Generic<String> generic = new Generic<>();
+        generic.setT("generic");
+        System.out.println(generic.getT());
     }
 
     /**
@@ -22,7 +19,7 @@ public class GenericDemo {
      */
     @Test
     public void example02() {
-        Generic<String> generic1 = new Generic<>();
-        System.out.println(generic1.getE(1));
+        Generic<String> generic = new Generic<>();
+        System.out.println(generic.getE(1));
     }
 }
