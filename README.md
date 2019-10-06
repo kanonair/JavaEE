@@ -1,6 +1,6 @@
     - JavaSE
             
-            - 枚举和注解        ea.EnumAanDemo
+            - 枚举类和注解       ea.EnumAanDemo
             
             - 集合             collection.CollectionDemo
             
