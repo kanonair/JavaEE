@@ -104,7 +104,50 @@ public class CollectionDemo {
      */
     @Test
     public void example04() {
+        HashMap<String, String> map = new HashMap<>();
+        map.put("s1", "A");
+        map.put("s2", "B");
+        map.put("s3", "C");
+        Set<String> keySet = map.keySet();
+        keySet.forEach(key -> System.out.println(map.get(key)));
+        Collection<String> values = map.values();
+        values.forEach(System.out::println);
+        Set<Map.Entry<String, String>> entrySet = map.entrySet();
+        entrySet.forEach(entry -> {
+            String key = entry.getKey();
+            String value = entry.getValue();
+            System.out.println(key + " = " + value);
+        });
+    }
 
+    /**
+     * Collections
+     */
+    @Test
+    public void example05() {
+        List<Integer> list = Arrays.asList(1, 2, 3, 4, 5, 6);
+        // 反转
+        Collections.reverse(list);
+        System.out.println(list);
+        // 随机
+        Collections.shuffle(list);
+        System.out.println(list);
+        // 排序
+        Collections.sort(list);
+        System.out.println(list);
+        // 交换
+        Collections.swap(list, 0, 1);
+        System.out.println(list);
+        // 频率
+        int frequency = Collections.frequency(list, 1);
+        System.out.println(frequency);
+        // 复制
+        List<Integer> dest = Arrays.asList(new Integer[list.size()]);
+        Collections.copy(dest, list);
+        System.out.println(dest);
+        // 同步
+        List<Integer> synchronizedList = Collections.synchronizedList(list);
+        System.out.println(synchronizedList);
     }
 
 }
