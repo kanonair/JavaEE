@@ -1,5 +1,7 @@
     - JavaSE
             
+            - 枚举和注解        ea.EnumAanDemo
+            
             - 集合             collection.CollectionDemo
             
             - 泛型             generic.GenericDemo
