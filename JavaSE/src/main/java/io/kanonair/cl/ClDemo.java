@@ -2,6 +2,12 @@ package io.kanonair.cl;
 
 import org.junit.Test;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.TemporalAccessor;
+import java.util.Arrays;
+import java.util.Comparator;
+
 public class ClDemo {
 
     /**
@@ -27,11 +33,26 @@ public class ClDemo {
     }
 
     /**
-     * 日期
+     * 日期格式化JDK1.8
      */
     @Test
     public void example02() {
+        DateTimeFormatter formatter = DateTimeFormatter
+                .ofPattern("yyyy-MM-dd HH:mm:ss");
+        String format = formatter.format(LocalDateTime.now());
+        System.out.println(format);
+        TemporalAccessor temporalAccessor = formatter.parse("1993-12-23 10:00:00");
+        System.out.println(temporalAccessor);
+    }
 
+    /**
+     * 比较器
+     */
+    @Test
+    public void example03() {
+        String[] arr = {"A", "C", "B"};
+        Arrays.sort(arr, Comparator.reverseOrder());
+        System.out.println(Arrays.toString(arr));
     }
 
 }
