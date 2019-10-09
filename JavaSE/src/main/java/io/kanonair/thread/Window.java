@@ -9,7 +9,7 @@ public class Window implements Runnable {
         while (true) {
             synchronized (this) {
                 if (num > 0) {
-                    System.out.println("剩余" + num + "张票");
+                    System.out.println(Thread.currentThread().getName() + " : 剩余" + num + "张票");
                     try {
                         Thread.sleep(1000);
                     } catch (InterruptedException e) {
