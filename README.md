@@ -1,5 +1,7 @@
     - JavaSE
             
+            - 基本语法         syntax.SyntaxDemo
+            
             - 多线程           thread.ThreadDemo
             
             - 常用类           cl.ClDemo
