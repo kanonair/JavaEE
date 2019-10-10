@@ -1,0 +1,15 @@
+SELECT * FROM employees;
+
+SELECT 100;
+
+SELECT 'MySQL';
+
+SELECT 100*90 `result`; # 别名
+
+SELECT NOW() AS `date`; # 别名
+
+SELECT DISTINCT(department_id) FROM employees; # 去重
+
+SELECT CONCAT(last_name,first_name) `name` FROM employees; # 字符串拼接
+
+SELECT CONCAT(last_name,first_name,IFNULL(commission_pct,'')) `name` FROM employees; # 处理空值
