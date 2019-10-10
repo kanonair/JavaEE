@@ -1,0 +1,23 @@
+登陆
+    mysql -h 127.0.0.1 -P 3306 -u root -p
+    Enter password: ******
+
+显示数据库
+    show databases;
+
+使用数据库
+    use db01;
+
+显示表
+    show tables;
+
+查询当前所在数据库
+    select database();
+
+表结构
+    desc `order`;
+
+查看版本
+    select version();
+    mysql --version
+    mysql -V
