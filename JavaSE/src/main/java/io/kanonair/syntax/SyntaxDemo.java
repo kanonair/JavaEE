@@ -45,6 +45,9 @@ public class SyntaxDemo {
 
     }
 
+    /**
+     * 接口
+     */
     @Test
     public void example03() {
         Inter.show();
