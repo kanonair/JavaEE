@@ -1,15 +1,40 @@
-SELECT * FROM employees;
+查询列表
+    SELECT * FROM employees;
 
-SELECT 100;
+    SELECT 100;
 
-SELECT 'MySQL';
+    SELECT 'MySQL';
 
-SELECT 100*90 `result`; # 别名
+    SELECT 100*90 `result`; # 别名
 
-SELECT NOW() AS `date`; # 别名
+    SELECT NOW() AS `date`; # 别名
 
-SELECT DISTINCT(department_id) FROM employees; # 去重
+    SELECT DISTINCT(department_id) FROM employees; # 去重
 
-SELECT CONCAT(last_name,first_name) `name` FROM employees; # 字符串拼接
+    SELECT CONCAT(last_name,first_name) `name` FROM employees; # 字符串拼接
 
-SELECT CONCAT(last_name,first_name,IFNULL(commission_pct,'')) `name` FROM employees; # 处理空值
+    SELECT CONCAT(last_name,first_name,IFNULL(commission_pct,'')) `name` FROM employees; # 处理空值
+
+    SELECT ISNULL(commission_pct) FROM employees; # 是否为空值
+
+条件查询
+    SELECT * FROM employees WHERE department_id <> 90;
+
+    SELECT * FROM employees WHERE salary >=10000 AND salary <=12000;
+
+    SELECT * FROM employees WHERE NOT(salary < 12000);
+
+模糊查询
+    SELECT * FROM employees WHERE last_name LIKE '_\_%';
+
+    SELECT * FROM employees WHERE last_name LIKE '_$_%' ESCAPE '$';
+
+    SELECT * FROM employees WHERE employee_id BETWEEN 100 AND 200;
+
+    SELECT * FROM employees WHERE employee_id IN(100,200);
+
+    SELECT * FROM employees WHERE commission_pct IS NULL;
+
+    SELECT * FROM employees WHERE commission_pct IS NOT NULL;
+
+    SELECT * FROM employees WHERE commission_pct <=> NULL; # 安全等于
