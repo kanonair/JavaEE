@@ -38,3 +38,59 @@
     SELECT * FROM employees WHERE commission_pct IS NOT NULL;
 
     SELECT * FROM employees WHERE commission_pct <=> NULL; # 安全等于
+
+排序查询
+    SELECT last_name,LENGTH(last_name) len FROM employees ORDER BY len DESC; # 字符串长度
+
+字符函数
+    SELECT LENGTH('hello'); # 字节个数
+
+    SELECT CONCAT('hello','world'); # 拼接
+
+    SELECT UPPER('hello'); # 大写
+
+    SELECT SUBSTR('李莫愁',2); # 截取
+
+    SELECT SUBSTR('李莫愁',2,1); # 从一开始
+
+    SELECT INSTR('李莫愁','李'); # 起始位置
+
+    SELECT TRIM('0' FROM '000李莫愁000'); # 除去空格
+
+    SELECT LPAD('李莫愁',6,'0'); # 左填充
+
+    SELECT REPLACE('0李莫愁0','0','1'); # 替换
+
+数学函数
+    SELECT ROUND(1.6); # 四舍五入
+
+    SELECT CEIL(1.2); # 向上取整
+
+    SELECT TRUNCATE(1.239,2); # 截断
+
+    SELECT MOD(10,3); # 取余
+
+日期函数
+    SELECT NOW(); # 当前日期时间
+
+    SELECT CURDATE(); # 当前日期
+
+    SELECT CURTIME(); # 当前时间
+
+    SELECT YEAR(NOW()); # 年
+
+    SELECT MONTH(NOW()); # 月
+
+    SELECT MONTHNAME(NOW()); # 月
+
+    SELECT STR_TO_DATE('1993/12/23 17:17:17','%Y/%m/%d %H:%i:%s'); # 转日期
+
+    SELECT DATE_FORMAT(NOW(),'%Y/%m/%d %H:%i:%s'); # 转字符串
+
+函数补充
+    SELECT COUNT(DISTINCT salary) FROM employees; # 去重后求数量
+
+分组查询
+    SELECT MAX(salary),job_id FROM employees GROUP BY job_id HAVING MAX(salary)>12000;
+
+
