@@ -1,0 +1,41 @@
+添加语句
+    INSERT INTO admin SET username = 'kanonair',`password`='1223';
+
+修改语句
+    UPDATE admin SET username='kanonair',`password`='1223' WHERE id = 3;
+
+删除语句
+    DELETE FROM admin;
+
+创建数据库
+    CREATE DATABASE db02;
+
+删除数据库
+    DROP DATABASE db02;
+
+创建表
+    CREATE TABLE book(
+    id INT,
+    bname VARCHAR(20)
+    );
+
+修改表
+    ALTER TABLE book CHANGE COLUMN bname b_name DATETIME; # 修改列名
+
+    ALTER TABLE book MODIFY COLUMN b_name VARCHAR(20); # 修改列类型
+
+    ALTER TABLE book ADD COLUMN description VARCHAR(20); # 添加列
+
+    ALTER TABLE book DROP COLUMN description; # 删除列
+
+    ALTER TABLE book RENAME TO books; # 重命名
+
+删除表
+    DROP TABLE books;
+
+复制表
+    CREATE TABLE admin1 LIKE admin; # 表结构
+
+    CREATE TABLE admin2 SELECT * FROM admin; # 表结构和数据
+
+

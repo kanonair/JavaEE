@@ -93,4 +93,5 @@
 分组查询
     SELECT MAX(salary),job_id FROM employees GROUP BY job_id HAVING MAX(salary)>12000;
 
-
+多表查询
+    SELECT `name`,`boyName` FROM beauty INNER JOIN boys ON beauty.`boyfriend_id` = boys.`id`; # LEFT RIGHT
