@@ -38,4 +38,68 @@
 
     CREATE TABLE admin2 SELECT * FROM admin; # 表结构和数据
 
+数据类型
+    CREATE TABLE test (id INT); # 整型
 
+    CREATE TABLE test (money DEC (3, 2)); # 浮点型
+
+    CREATE TABLE test (name1 CHAR(2),name2 VARCHAR(2)); # char(字符数)固定 varchar(字符数)可变
+
+    CREATE TABLE test (time1 DATETIME,time2 TIMESTAMP); # 日期型
+
+创建约束
+    CREATE TABLE stu (
+      id INT PRIMARY KEY AUTO_INCREMENT, # 主键
+      stuname VARCHAR (20) NOT NULL, # 非空
+      gender CHAR(1) DEFAULT '男', # 默认
+      seat INT UNIQUE # 唯一
+    );
+
+    CREATE TABLE stu (
+      id INT,
+      stuname VARCHAR (20),
+      gender CHAR(1),
+      seat INT,
+      classid INT,
+      PRIMARY KEY(id), # 主键
+      UNIQUE(seat), # 唯一
+      FOREIGN KEY(classid) REFERENCES class(id) # 外键
+    );
+
+修改约束
+    ALTER TABLE stu MODIFY COLUMN stuname VARCHAR(20) NOT NULL;
+
+    ALTER TABLE stu MODIFY COLUMN age INT DEFAULT 18;
+
+    ALTER TABLE stu MODIFY COLUMN id INT PRIMARY KEY;
+    ALTER TABLE stu ADD PRIMARY KEY(id);
+
+    ALTER TABLE stu MODIFY COLUMN seat INT UNIQUE;
+    ALTER TABLE stu ADD UNIQUE(seat);
+
+    ALTER TABLE stu ADD FOREIGN KEY(classid) REFERENCES class(id);
+
+删除约束
+    ALTER TABLE stu DROP PRIMARY KEY;
+
+    ALTER TABLE stu DROP INDEX ???; SHOW INDEX FROM stu; #删除唯一
+
+    ALTER TABLE stu DROP FOREIGN KEY ???;
+
+视图操作
+    CREATE OR REPLACE VIEW myview AS SELECT id,img FROM `index`; # 创建
+
+    SELECT * FROM myview; # 查看
+
+    ALTER VIEW myview AS SELECT id,img FROM `index`; # 修改
+
+    DROP VIEW myview; # 删除
+
+用户管理
+    SELECT * FROM USER; # 查询用户
+
+    CREATE USER 'faye'@'localhost' IDENTIFIED BY '0808'; # 添加用户
+
+    DROP USER 'faye'@'localhost'; # 删除用户
+
+    SET PASSWORD FOR 'faye'@'localhost' = PASSWORD('1'); # 修改密码
