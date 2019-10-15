@@ -13,6 +13,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.InputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -135,6 +137,43 @@ public class MyBatisDemo {
         userMapper.insert(user);
         sqlSession.commit();
         System.out.println(user);
+    }
+
+    /**
+     * if
+     */
+    @Test
+    public void example10() throws Exception {
+        OrderMapper orderMapper = sqlSession.getMapper(OrderMapper.class);
+        orderMapper.selectByIf(null).forEach(System.out::println);
+        System.out.println("==========================================");
+        Order order = new Order();
+        order.setPrice(1.0);
+        Date date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse("2019-09-13 00:10:17");
+        order.setTime(date);
+        orderMapper.selectByIf(order).forEach(System.out::println);
+    }
+
+    /**
+     * ForEach
+     */
+    @Test
+    public void example11() {
+        sqlSession.getMapper(OrderMapper.class).selectByIn(1, 3)
+                .forEach(System.out::println);
+    }
+
+    /**
+     * set
+     */
+    @Test
+    public void example12() {
+        Order order = new Order();
+        order.setId(3);
+        order.setPrice(100.0);
+        order.setTime(new Date());
+        sqlSession.getMapper(OrderMapper.class).update(order);
+        sqlSession.commit();
     }
 
     @After

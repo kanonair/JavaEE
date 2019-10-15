@@ -10,4 +10,10 @@ public interface OrderMapper {
 
     List<Order> selectByUserId(Integer id);
 
+    List<Order> selectByIf(Order order);
+
+    List<Order> selectByIn(Integer... ids);
+
+    void update(Order order);
+
 }

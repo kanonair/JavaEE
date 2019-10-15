@@ -15,4 +15,55 @@
     <select id="selectByUserId" resultType="order">
         select * from `order` where userid = #{userid}
     </select>
+
+    <select id="selectByIf" resultType="order">
+        select
+        *
+        from
+        `order`
+        <where>
+            <if test="price != null">
+                and price = #{price}
+            </if>
+            <if test="time != null">
+                and time = #{time}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectByIn" resultType="order">
+        select
+        *
+        from
+        `order`
+        <where>
+            id in
+            <foreach collection="array" open="(" item="item" separator="," close=")">
+                #{item}
+            </foreach>
+        </where>
+    </select>
+
+    <update id="update" parameterType="order">
+        update `order`
+        <set>
+            <if test="price != null">
+                price = #{price},
+            </if>
+            <if test="time != null">
+                time = #{time},
+            </if>
+        </set>
+        <where>
+            id = #{id}
+        </where>
+    </update>
+
+    <!--    <choose>-->
+    <!--        <when test=""></when>-->
+    <!--        <otherwise></otherwise>-->
+    <!--    </choose>-->
+
+    <!--    <trim prefix="" suffix="" prefixOverrides="" suffixOverrides=""></trim>-->
+
 </mapper>
