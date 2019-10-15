@@ -19,5 +19,7 @@ public interface UserMapper {
 
     List<User> selectLikeName(String name);
 
+    User selectOne(Integer id);
+
     void insert(User user);
 }

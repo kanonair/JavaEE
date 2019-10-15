@@ -1,6 +1,8 @@
 package io.kanonair.junit;
 
+import io.kanonair.mapper.OrderMapper;
 import io.kanonair.mapper.UserMapper;
+import io.kanonair.pojo.Order;
 import io.kanonair.pojo.User;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -96,6 +98,28 @@ public class MyBatisDemo {
         UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
         List<User> list = userMapper.selectLikeName("T");
         list.forEach(System.out::println);
+    }
+
+    /**
+     * 一对一
+     */
+    @Test
+    public void example07() {
+        OrderMapper orderMapper = sqlSession.getMapper(OrderMapper.class);
+        Order order = orderMapper.selectById(1);
+        System.out.println(order);
+    }
+
+    /**
+     * 一对多
+     */
+    @Test
+    public void example08() {
+        OrderMapper orderMapper = sqlSession.getMapper(OrderMapper.class);
+        List<Order> orderList = orderMapper.selectByUserId(1);
+        System.out.println(orderList);
+        User user = sqlSession.getMapper(UserMapper.class).selectOne(1);
+        System.out.println(user);
     }
 
     /**

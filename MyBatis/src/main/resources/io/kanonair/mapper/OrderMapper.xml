@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="io.kanonair.mapper.OrderMapper">
+
+    <resultMap id="order" type="order">
+        <association column="userid" property="user" select="io.kanonair.mapper.UserMapper.selectById"/>
+    </resultMap>
+
+    <select id="selectById" resultMap="order">
+        select * from `order` where id = #{id}
+    </select>
+
+    <select id="selectByUserId" resultType="order">
+        select * from `order` where userid = #{userid}
+    </select>
+</mapper>

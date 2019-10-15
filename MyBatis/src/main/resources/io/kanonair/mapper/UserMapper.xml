@@ -29,6 +29,14 @@
         select * from `user` where name like concat('%',#{name},'%')
     </select>
 
+    <resultMap id="user" type="user">
+        <collection column="id" property="orderList" select="io.kanonair.mapper.OrderMapper.selectByUserId"/>
+    </resultMap>
+
+    <select id="selectOne" resultMap="user">
+        select * from `user` where id = #{id}
+    </select>
+
     <insert id="insert" parameterType="user">
         <selectKey order="AFTER" keyProperty="id" resultType="int">
             select last_insert_id()
