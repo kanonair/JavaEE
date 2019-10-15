@@ -5,8 +5,35 @@
 
 <mapper namespace="io.kanonair.mapper.UserMapper">
 
-    <select id="selectAll" resultType="user">
-        select * from `user`
+    <select id="selectById" resultType="user">
+        select * from `user` where id = #{id}
     </select>
+
+    <select id="selectByNameAndSex" resultType="user">
+        select * from `user` where name = #{name} and sex = #{sex}
+    </select>
+
+    <select id="selectByNameAndSexMap" resultType="user">
+        select * from `user` where name = #{name} and sex = #{sex}
+    </select>
+
+    <update id="update" parameterType="user">
+        update `user` set name = #{name},sex = #{sex} where id = #{id}
+    </update>
+
+    <select id="selectByUserTwo" resultType="user">
+        select * from `user` where name = #{param1.name} and sex = #{param2.sex}
+    </select>
+
+    <select id="selectLikeName" resultType="user">
+        select * from `user` where name like concat('%',#{name},'%')
+    </select>
+
+    <insert id="insert" parameterType="user">
+        <selectKey order="AFTER" keyProperty="id" resultType="int">
+            select last_insert_id()
+        </selectKey>
+        insert into `user` values (null ,#{name},#{sex})
+    </insert>
 
 </mapper>
