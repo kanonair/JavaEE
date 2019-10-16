@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="person" class="io.kanonair.pojo.Person">
+        <property name="id" value="1"/>
+        <property name="name" value="Taylor"/>
+        <property name="age" value="18"/>
+        <property name="phone">
+            <null/>
+        </property>
+        <property name="car" ref="car"/>
+        <property name="list">
+            <list>
+                <value>1</value>
+                <value>2</value>
+                <value>3</value>
+                <ref bean="car"/>
+            </list>
+        </property>
+    </bean>
+    <bean id="car" class="io.kanonair.pojo.Car">
+        <property name="no" value="1"/>
+        <property name="name" value="AA"/>
+    </bean>
+</beans>
