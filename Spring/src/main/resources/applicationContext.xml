@@ -2,10 +2,13 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
                         http://www.springframework.org/schema/beans/spring-beans.xsd
                         http://www.springframework.org/schema/context
-                        http://www.springframework.org/schema/context/spring-context.xsd">
+                        http://www.springframework.org/schema/context/spring-context.xsd
+                        http://www.springframework.org/schema/aop
+                        http://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <!--IOC/DI-->
 
@@ -41,5 +44,31 @@
         <property name="username" value="${user}"/>
         <property name="password" value="${password}"/>
     </bean>
+
+    <!--包扫描-->
+
+    <context:component-scan base-package="io.kanonair.pojo">
+        <!--排除-->
+        <!--<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Component"/>-->
+        <!--包含-->
+        <!--<context:include-filter type="assignable" expression="io.kanonair.pojo.Book"/>-->
+    </context:component-scan>
+    <context:component-scan base-package="io.kanonair.service"/>
+    <context:component-scan base-package="io.kanonair.aop"/>
+
+    <!--AOP-->
+
+    <aop:aspectj-autoproxy/>
+
+    <!--&lt;!&ndash;目标对象&ndash;&gt;
+    <bean id="bookService" class="io.kanonair.service.BookServiceImpl"/>
+    &lt;!&ndash;切面对象&ndash;&gt;
+    <bean id="demo" class="io.kanonair.aop.AopDemo"/>
+    <aop:config>
+        <aop:aspect id="aspect" ref="demo">
+            <aop:around method="around" pointcut="execution(* io.kanonair.service.*.*(..))"/>
+        </aop:aspect>
+    </aop:config>-->
+
 
 </beans>
