@@ -28,6 +28,8 @@
 
     <context:component-scan base-package="io.kanonair.service"/>
 
+    <context:component-scan base-package="io.kanonair.config"/>
+
     <bean class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <property name="typeAliasesPackage" value="io.kanonair.pojo"/>

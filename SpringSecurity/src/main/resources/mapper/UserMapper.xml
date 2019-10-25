@@ -5,8 +5,8 @@
 
 <mapper namespace="io.kanonair.mapper.UserMapper">
 
-    <select id="selectById" resultType="user">
-        select * from `user` where id = #{id}
+    <select id="loadUserByUsername" resultType="user">
+        select * from `user` where name = #{name}
     </select>
 
 </mapper>

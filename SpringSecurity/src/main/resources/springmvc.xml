@@ -16,4 +16,16 @@
 
     <mvc:default-servlet-handler/>
 
+    <mvc:view-controller path="/index" view-name="index"/>
+    <mvc:view-controller path="/main" view-name="main"/>
+    <mvc:view-controller path="/admin" view-name="admin"/>
+    <mvc:view-controller path="/svip" view-name="svip"/>
+    <mvc:view-controller path="/vip" view-name="vip"/>
+    <mvc:view-controller path="/403" view-name="403"/>
+
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/views/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
 </beans>

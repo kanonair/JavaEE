@@ -1,7 +1,7 @@
 package io.kanonair.service;
 
-import io.kanonair.pojo.User;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
-public interface UserService {
-    User findById(Integer id);
+public interface UserService extends UserDetailsService {
+
 }
