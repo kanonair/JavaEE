@@ -13,6 +13,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
+//@EnableGlobalMethodSecurity(prePostEnabled = true)
+//@PreAuthorize("hashAuthorize('admin')")
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
