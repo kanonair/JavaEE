@@ -1,0 +1,28 @@
+安装
+    tar zxvf redis-5.0.5.tar.gz
+
+    yum install gcc
+
+    make
+
+    vi ../redis.conf
+
+    daemonize no    #设置为yes改为后台启动
+
+    bind 127.0.0.1    #前面加#注释掉，允许外网访问，默认只能本机
+
+    protected-mode yes    #改为no，关闭保护模式允许外网访问
+
+    #查看6379端口是否开启
+    firewall-cmd --permanent --query-port=6379/tcp
+
+    #允许外部访问6379端口
+    firewall-cmd --zone=public --add-port=6379/tcp --permanent
+
+    #配置生效
+    systemctl restart firewalld.service
+
+    #启动
+    ./redis-server ../redis.conf
+
+    https://github.com/MicrosoftArchive/redis/releases
