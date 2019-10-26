@@ -12,3 +12,5 @@
     
     - Spring Security
     
+    - redis
+    
