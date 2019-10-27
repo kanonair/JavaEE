@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>springboot</title>
+</head>
+<body>
+<ul>
+    <li th:each="user : ${list}">
+        <span th:text="${user.id}"></span>
+        <span th:text="${user.name}"></span>
+        <span th:text="${user.sex==1?'男':'女'}"></span>
+    </li>
+</ul>
+</body>
+</html>

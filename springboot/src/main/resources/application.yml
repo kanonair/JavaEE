@@ -1,1 +1,15 @@
-
+server:
+  port: 80
+  servlet:
+    context-path: /springboot
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql:///db01?serverTimezone=Asia/Shanghai
+    username: root
+    password: stefzi
+  application:
+    name: springboot
+mybatis:
+  mapper-locations: classpath*:mapper/*.xml
+  type-aliases-package: io.kanonair.pojo
