@@ -1,9 +1,9 @@
 server:
-  port: 8080
+  port: 8081
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql:///db01?serverTimezone=Asia/Shanghai
+    url: jdbc:mysql:///db02?serverTimezone=Asia/Shanghai
     username: root
     password: stefzi
   application:

@@ -12,7 +12,7 @@ import java.util.List;
 @RestController
 public class UserController {
 
-    private static final String REST_URL = "http://SPRINGCLOUD-PROVIDER-8080";
+    private static final String REST_URL = "http://SPRINGCLOUD-PROVIDER";
 
     @Autowired
     private RestTemplate restTemplate;
