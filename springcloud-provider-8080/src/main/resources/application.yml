@@ -11,4 +11,7 @@ spring:
 mybatis:
   mapper-locations: classpath*:mapper/*.xml
   type-aliases-package: io.kanonair.pojo
-
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:3000/eureka

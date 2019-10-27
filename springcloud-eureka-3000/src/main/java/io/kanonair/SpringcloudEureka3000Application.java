@@ -2,14 +2,14 @@ package io.kanonair;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 
 @SpringBootApplication
-@EnableEurekaClient
-public class SpringcloudProvider8080Application {
+@EnableEurekaServer
+public class SpringcloudEureka3000Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringcloudProvider8080Application.class, args);
+        SpringApplication.run(SpringcloudEureka3000Application.class, args);
     }
 
 }
