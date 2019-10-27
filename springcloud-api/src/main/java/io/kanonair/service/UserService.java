@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
-@FeignClient("springcloud-provider")
+@FeignClient("SPRINGCLOUD-PROVIDER")
 public interface UserService {
     @GetMapping("list")
     List<User> list();
