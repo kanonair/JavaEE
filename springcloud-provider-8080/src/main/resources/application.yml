@@ -1,0 +1,14 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql:///db01?serverTimezone=Asia/Shanghai
+    username: root
+    password: stefzi
+  application:
+    name: springcloud-provider-8080
+mybatis:
+  mapper-locations: classpath*:mapper/*.xml
+  type-aliases-package: io.kanonair.pojo
+
