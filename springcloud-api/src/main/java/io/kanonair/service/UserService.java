@@ -1,5 +1,6 @@
 package io.kanonair.service;
 
+import io.kanonair.factory.UserServiceFactory;
 import io.kanonair.pojo.User;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
-@FeignClient("SPRINGCLOUD-PROVIDER")
+@FeignClient(value = "SPRINGCLOUD-PROVIDER", fallbackFactory = UserServiceFactory.class)
 public interface UserService {
     @GetMapping("list")
     List<User> list();
