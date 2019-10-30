@@ -1,0 +1,14 @@
+server:
+  port: 9002
+spring:
+  application:
+    name: springcloud-zuul-9002
+eureka:
+  client:
+    service-url:
+      defaultZone: http://www.eureka3000.com:3000/eureka,http://www.eureka3001.com:3001/eureka,http://www.eureka3002.com:3002/eureka
+zuul:
+  routes:
+    air.serviceId: springcloud-provider
+    air.path: /air/**
+  ignored-services: "*"
